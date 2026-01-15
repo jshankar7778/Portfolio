@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayashankar J Pillai | Business & Operations Consultant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0a2342; /* Deep Navy */
+            --secondary-color: #3b82f6; /* Bright Blue Accent */
+            --light-gray: #f8f9fa;
+            --dark-text: #1f2937;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        /* Navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--primary-color) !important;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        .btn-primary-custom:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            color: white;
+        }
+        section {
+            padding: 80px 0;
+        }
+        /* Hero Section */
+        #home {
+            /* background: linear-gradient(135deg, var(--light-gray) 0%, #eef2f7 100%); */
+            background-color: var(--light-gray);
+            padding-top: 120px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .profile-img-container {
+            position: relative;
+            z-index: 1;
+        }
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary-color);
+            top: 20px;
+            right: -20px;
+            z-index: -1;
+            border-radius: 10px;
+            opacity: 0.3;
+        }
+        .profile-img {
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 100%;
+            height: auto;
+        }
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* About Section */
+        .skill-badge {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 5px;
+            display: inline-block;
+            border: 1px solid #dce4ec;
+        }
+        /* Services Section */
+        #services {
+            background-color: var(--light-gray);
+        }
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+        /* Contact Section */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+            width: 30px;
+        }
+        .form-control {
+            padding: 12px;
+            border: 1px solid #dce4ec;
+            margin-bottom: 20px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--secondary-color);
+        }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        @media (max-width: 991px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            #home { padding-top: 100px; text-align: center; }
+            .profile-img-container { margin-top: 40px; }
+            .profile-img-container::before { display: none; }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#home">JAYASHANKAR J PILLAI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Consulting Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h1>Aligning Business Objectives with Execution Excellence.</h1>
+                    <p class="hero-subtitle">Results-driven IT Services Manager & Business Operations Leader with over 4 years of experience driving revenue growth and project delivery.</p>
+                    <a href="#contact" class="btn btn-primary-custom me-3">Book a Consultation</a>
+                    <a href="#services" class="btn btn-outline-dark" style="padding: 12px 30px; font-weight: 600;">View Services</a>
+                </div>
+                <div class="col-lg-5 offset-lg-1 text-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="profile-img-container">
+                        <img src="profile.jpg" alt="Jayashankar J Pillai" class="profile-img img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <p class="lead mb-4">I am a results-driven IT Services Manager and Business Operations Leader with over 4 years of experience managing end-to-end client engagement, project delivery, revenue growth, and operational leadership[cite: 46].</p>
+                    <p>My expertise lies in new client acquisition, full project ownership, stakeholder management, performance reporting, and field-level coordination[cite: 47]. I am adept at aligning high-level business objectives with on-the-ground execution excellence in fast-paced IT services environments[cite: 48]. Throughout my career, I have successfully managed full-cycle client engagements from acquisition to delivery [cite: 86] and consistently delivered INR 4 Lakhs+ monthly revenue in client-facing roles[cite: 87].</p>
+                    
+                    <h5 class="mt-5 mb-3">Core Competencies</h5>
+                    <div class="skills-container">
+                        <span class="skill-badge">Client Acquisition & Relationship Management</span>
+                        <span class="skill-badge">End-to-End Project Ownership</span>
+                        <span class="skill-badge">IT Services Delivery</span>
+                        <span class="skill-badge">Business Development</span>
+                        <span class="skill-badge">Stakeholder Management</span>
+                        <span class="skill-badge">Team Leadership</span>
+                        <span class="skill-badge">Process Optimization</span>
+                        <span class="skill-badge">KPI Tracking</span>
+                        <span class="skill-badge">CRM & Operations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Consulting Services</h2>
+                <p class="text-muted mt-3">Specialized consultation to drive your business forward, available for fixed-fee engagements.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card text-center">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Strategic Operations Consulting</h3>
+                        <p class="mt-3">Align your business objectives with execution timelines. I assist with strategic planning, operational optimization, process improvement, and setting up robust KPI tracking and reporting structures to enhance decision-making.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card text-center">
+                        <i class="fas fa-bullseye service-icon"></i>
+                        <h3>Sales Training & Enablement</h3>
+                        <p class="mt-3">Leveraging experience in leading teams and consultative selling, I offer training on driving new client acquisition, managing pipelines using CRM tools (like LeadSquared), and improving conversion rates.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card text-center">
+                        <i class="fas fa-hand-holding-usd service-icon"></i>
+                        <h3>Revenue Generation & Client Lifecycle</h3>
+                        <p class="mt-3">Optimize your revenue streams. My services cover full-cycle engagement strategies, from onboarding to post-sales coordination, aimed at increasing monthly revenue and reducing payment default rates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Get In Touch</h2>
+                <p class="text-muted mt-3">Ready to optimize your business operations? Let's discuss how I can help.</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p class="mb-0">jayashankarjpillai1998@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <p class="mb-0">+91 7306163084</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <div>
+                            <h5 class="mb-1">LinkedIn</h5>
+                            <p class="mb-0"><a href="https://linkedin.com/in/jayashankar-jp" target="_blank" style="text-decoration: none; color: inherit;">linkedin.com/in/jayashankar-jp</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5 class="mb-1">Location</h5>
+                            <p class="mb-0">Kerala, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="400">
+                    <form action="YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="_replyto" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        <textarea name="message" rows="5" class="form-control" placeholder="Message / Consultation Details" required></textarea>
+                        <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="mb-0">© 2025 Jayashankar J Pillai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true, // Animations only happen once while scrolling down
+            offset: 100
+        });
+    </script>
+</body>
+</html>
